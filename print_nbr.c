@@ -6,19 +6,19 @@
 /*   By: hroh <hroh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 21:31:56 by hroh              #+#    #+#             */
-/*   Updated: 2020/11/06 22:34:44 by hroh             ###   ########.fr       */
+/*   Updated: 2020/11/09 22:05:53 by hroh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int set_prec_nbr(unsigned long long nbr, t_option *opt, char **buf)
+static int	set_prec_nbr(unsigned long long nbr, t_option *opt, char **buf)
 {
 	int	buf_len;
 	int	sum;
 	int	i;
 
-	buf_len = (nbr == 0 && opt->prec != -1) ? 1 : ft_nbrlen(nbr);
+	buf_len = (nbr == 0 && opt->prec != -1) ? 1 : ft_nbrlen_base(nbr, opt);
 	sum = (opt->prec > buf_len) ? opt->prec : buf_len;
 	if (!(*buf = (char *)malloc(sizeof(char) * sum + 1)))
 		return (0);
@@ -31,7 +31,7 @@ static int set_prec_nbr(unsigned long long nbr, t_option *opt, char **buf)
 	}
 	i = 1;
 	if (nbr == 0 && opt->prec != -1)
-		(*buf)[0] = '0';
+		(*buf)[sum - i] = '0';
 	while (nbr)
 	{
 		(*buf)[sum - i] = ft_baseset(opt->conv)[nbr % opt->base];

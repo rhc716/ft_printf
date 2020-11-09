@@ -6,7 +6,7 @@
 /*   By: hroh <hroh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 14:23:55 by hroh              #+#    #+#             */
-/*   Updated: 2020/11/06 21:39:00 by hroh             ###   ########.fr       */
+/*   Updated: 2020/11/09 22:01:33 by hroh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void			print_char(int c, t_option *opt);
 void			print_nbr(unsigned long long nbr, t_option *opt);
 void			print_str(char *arg, t_option *opt);
 void			init_option(t_option *opt);
+int				ft_nbrlen_base(unsigned long long nbr, t_option *opt);
 char			*ft_baseset(char type);
 
 #endif

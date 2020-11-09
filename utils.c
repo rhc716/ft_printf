@@ -6,11 +6,26 @@
 /*   By: hroh <hroh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 21:34:29 by hroh              #+#    #+#             */
-/*   Updated: 2020/11/06 21:38:45 by hroh             ###   ########.fr       */
+/*   Updated: 2020/11/09 22:00:15 by hroh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		ft_nbrlen_base(unsigned long long nbr, t_option *opt)
+{
+	int		i;
+
+	if (nbr == 0 && opt->prec != 0)
+		return (1);
+	i = 0;
+	while (nbr)
+	{
+		i++;
+		nbr /= opt->base;
+	}
+	return (i);
+}
 
 void	init_option(t_option *opt)
 {
