@@ -6,7 +6,7 @@
 /*   By: hroh <hroh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 21:30:12 by hroh              #+#    #+#             */
-/*   Updated: 2020/11/06 21:36:26 by hroh             ###   ########.fr       */
+/*   Updated: 2020/11/09 22:18:52 by hroh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	print_char_pad(t_option *opt)
 {
 	int i;
 
-	i = 0;
+	i = 1;
 	while (i < opt->width)
 	{
 		if (opt->zero == 1)
