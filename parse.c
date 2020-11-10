@@ -6,7 +6,7 @@
 /*   By: hroh <hroh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 21:24:14 by hroh              #+#    #+#             */
-/*   Updated: 2020/11/10 02:06:27 by hroh             ###   ########.fr       */
+/*   Updated: 2020/11/11 02:34:58 by hroh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	set_prec(t_option *opt, const char *format, va_list ap)
 	if (format[opt->i] == '*')
 	{
 		opt->prec = va_arg(ap, int);
+		if (opt->prec < 0)
+			opt->prec = -2;
 		opt->i++;
 	}
 	else
@@ -78,13 +80,13 @@ void		parse_option(t_option *opt, const char *format, va_list ap)
 		opt->zero = 0;
 	if (opt->prec == 0 && opt->dot == 1)
 		opt->prec = -1;
-	if ((opt->minus == 1 || opt->prec == -1) && opt->conv != '%')
-		opt->zero = 0;
 	if (opt->width < 0)
 	{
 		opt->minus = 1;
 		opt->width *= -1;
 	}
+	if ((opt->minus == 1 || opt->prec == -1) && opt->conv != '%')
+		opt->zero = 0;
 	if (opt->conv == 'x' || opt->conv == 'X' || opt->conv == 'p')
 		opt->base = 16;
 }

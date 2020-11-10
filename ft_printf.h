@@ -6,7 +6,7 @@
 /*   By: hroh <hroh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 14:23:55 by hroh              #+#    #+#             */
-/*   Updated: 2020/11/10 00:50:29 by hroh             ###   ########.fr       */
+/*   Updated: 2020/11/11 02:32:02 by hroh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct	s_option
 	int			width;
 	int			dot;
 	int			prec;
-	char		len;
 	char		conv;
 	int			base;
 	int			sign;
