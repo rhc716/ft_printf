@@ -6,7 +6,7 @@
 /*   By: hroh <hroh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 21:31:56 by hroh              #+#    #+#             */
-/*   Updated: 2020/11/11 03:43:19 by hroh             ###   ########.fr       */
+/*   Updated: 2020/11/11 03:57:57 by hroh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ static int	set_prec_nbr(unsigned long long nbr, t_option *opt, char **buf)
 
 	buf_len = (nbr == 0 && opt->prec != -1) ? 1 : ft_nbrlen_base(nbr, opt);
 	sum = (opt->prec > buf_len) ? opt->prec : buf_len;
-	buf_len = (nbr == 0 && opt->conv == 'p') ? 0 : buf_len;
-	sum = (nbr == 0 && opt->conv == 'p') ? 0 : sum;
 	if (!(*buf = (char *)malloc(sizeof(char) * sum + 1)))
 		return (0);
 	i = 0;
