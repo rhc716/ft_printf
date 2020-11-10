@@ -6,7 +6,7 @@
 /*   By: hroh <hroh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 21:31:56 by hroh              #+#    #+#             */
-/*   Updated: 2020/11/11 03:57:57 by hroh             ###   ########.fr       */
+/*   Updated: 2020/11/11 04:50:57 by hroh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static int	set_prec_nbr(unsigned long long nbr, t_option *opt, char **buf)
 	int	sum;
 	int	i;
 
-	buf_len = (nbr == 0 && opt->prec != -1) ? 1 : ft_nbrlen_base(nbr, opt);
+	buf_len = (nbr == 0 && opt->prec != -1
+	&& opt->conv != 'p') ? 1 : ft_nbrlen_base(nbr, opt);
 	sum = (opt->prec > buf_len) ? opt->prec : buf_len;
 	if (!(*buf = (char *)malloc(sizeof(char) * sum + 1)))
 		return (0);
@@ -63,7 +64,7 @@ static int	set_sign(t_option *opt, char **buf, int pos, int buf_len)
 
 static int	set_prefix(char **buf, unsigned long long nbr, t_option *opt)
 {
-	if (nbr == 0 && opt->prec != -1)
+	if (nbr == 0 && (opt->prec == 0 || opt->prec <= -2))
 	{
 		*buf = ft_strjoin("0x0", *buf, 2);
 		return (3);

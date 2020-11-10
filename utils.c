@@ -6,7 +6,7 @@
 /*   By: hroh <hroh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 21:34:29 by hroh              #+#    #+#             */
-/*   Updated: 2020/11/11 02:31:54 by hroh             ###   ########.fr       */
+/*   Updated: 2020/11/11 04:37:18 by hroh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_nbrlen_base(unsigned long long nbr, t_option *opt)
 {
 	int		i;
 
-	if (nbr == 0 && opt->prec != -1)
+	if (nbr == 0 && opt->prec != -1 && opt->conv != 'p')
 		return (1);
 	i = 0;
 	while (nbr)
