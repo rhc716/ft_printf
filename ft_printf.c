@@ -6,7 +6,7 @@
 /*   By: hroh <hroh@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 14:01:05 by hroh              #+#    #+#             */
-/*   Updated: 2020/11/11 01:31:08 by hroh             ###   ########.fr       */
+/*   Updated: 2020/11/13 15:51:46 by hroh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ int			ft_printf(const char *format, ...)
 	read_format(format, ap, opt);
 	ret = opt->ret;
 	va_end(ap);
+	free(opt);
 	return (ret);
 }
